@@ -53,3 +53,5 @@ fi
 if ((opt_new_window)); then
   xdg-open "$url"
 fi
+
+notify-send 'Done processing!'
