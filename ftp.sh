@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+currentdirname=$(dirname "$0")
 source $(dirname "$0")/config.sh
 
 
@@ -47,7 +48,7 @@ sshpass -e sftp -oPort=22 "$HOST" <<END_SCRIPT
   put "$name.png" "$upload_dir"
 END_SCRIPT
 
-rm "$name.png"
+mv "$name.png" "$currentdirname/screenshots/$name.png"
 
 url="$BASE_REDIRECT_URL/$name.png"
 
