@@ -1,1 +1,3 @@
-flameshot gui --raw >& /dev/null && bash $(dirname "$0")/ftp.sh -w -e
+#!/usr/bin/env bash
+
+bash $(dirname "$0")/ftp.sh
