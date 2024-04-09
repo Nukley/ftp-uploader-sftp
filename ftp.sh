@@ -11,6 +11,13 @@ if [[ -z "${name}" ]]; then
 fi
 
 flameshot gui --raw > "$name.png"
+getimgsize=$(cat "$name.png" | wc -c)
+
+if [[ $getimgsize == 0 ]]; then
+  echo "No image found on clipboard!"
+  rm "$name.png"
+  exit 1
+fi
 
 declare name
 declare -i opt_quiet
@@ -54,4 +61,4 @@ if ((opt_new_window)); then
   xdg-open "$url"
 fi
 
-notify-send 'Done processing!'
+notify-send 'Done!'
